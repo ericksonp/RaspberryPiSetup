@@ -2,7 +2,7 @@
 
 #prepare sensor test program
 cd ~/RaspberryPiSetup
-chmod 755 sensortest.sh 
+sudo chmod 755 sensortest.sh 
 
 #setup automatic time keeping
 sudo cp /usr/share/zoneinfo/America/New_York /etc/localtime
