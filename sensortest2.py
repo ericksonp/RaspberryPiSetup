@@ -16,7 +16,7 @@ from SHT31 import *
 
 #set up IR lights
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(21, GPIO.OUT)
+GPIO.setup(16, GPIO.OUT)
 
 print 'Argument List:', str(sys.argv)
 
@@ -80,16 +80,16 @@ while True:
     print "Lux is", currlux
     print 
     if onTime <= minute % 10 <offTime:
-        print ' Lights on!'
+        print ' Lights on! LED On!'
         lights=True
-        GPIO.output(21,False)
+        GPIO.output(16,True)
         for i in range(LED_COUNT):
             strip.setPixelColor(i,Color(R,G,B,W))
             strip.show()
             time.sleep(.1)
     else:
-        print 'Lights off!, IR ON'
-        GPIO.output(21,True)
+        print 'Lights off!, LED Off!'
+        GPIO.output(16,False)
         lights=False
         for i in range(LED_COUNT):
             strip.setPixelColor(i,Color(0,0,0,0))
